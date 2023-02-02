@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ProductData } from "../../types/products-data";
 import Table from "../Table/Table";
 
 interface Props {
 	inputValue: number;
-	numberProducts: number;
+	numberLastProductsToDisplay: number;
+	setNumberAllProduts: Dispatch<SetStateAction<number>>;
 }
 
 const Products = (props: Props) => {
 	const [productsList, setProdutsList] = useState<ProductData[] | null>(null);
 
-	let startTable = props.numberProducts - 5;
-	let endTable = props.numberProducts;
+	let startTable = props.numberLastProductsToDisplay - 5;
+	let endTable = props.numberLastProductsToDisplay;
 
 	useEffect(() => {
 		(async () => {
@@ -27,6 +28,8 @@ const Products = (props: Props) => {
 				}
 				const data = await res.json();
 
+				props.setNumberAllProduts(data.data.length);
+
 				await setProdutsList(
 					data.data
 						.filter((product: ProductData) => {
@@ -40,7 +43,7 @@ const Products = (props: Props) => {
 				console.error(error);
 			}
 		})();
-	}, [props.inputValue, props.numberProducts]);
+	}, [props.inputValue, props.numberLastProductsToDisplay]);
 
 	return (
 		<>

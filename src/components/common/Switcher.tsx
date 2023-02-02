@@ -6,6 +6,7 @@ import arrowRight from "../../images/arrow-right.svg";
 interface Props {
 	direction: "prev" | "next";
 	setNumber: Dispatch<SetStateAction<number>>;
+	numberAllProducts: number;
 }
 
 const Switcher = (props: Props) => {
@@ -21,6 +22,7 @@ const Switcher = (props: Props) => {
 							if (prev === 5) return prev;
 							return (prev = prev - 5);
 						case "next":
+							if (props.numberAllProducts < prev) return prev;
 							return (prev = prev + 5);
 					}
 				});

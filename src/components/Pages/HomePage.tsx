@@ -6,9 +6,14 @@ const HomePage = () => {
 	const [inputFilterValue, setInputFilterValue] = useState<string>("");
 	const [focus, setFocus] = useState<boolean>(false);
 
-	const [numberProducts, setNumberProducts] = useState(5);
+	const [numberAllProducts, setNumberAllProduts] = useState(0);
 
-	console.log(numberProducts);
+	console.log(numberAllProducts);
+
+	const [numberLastProductsToDisplay, setNumberLastProductsToDisplay] =
+		useState(5);
+
+	// console.log(numberLastProductsToDisplay);
 
 	const handleInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (Number.isNaN(Number(e.target.value))) return;
@@ -32,10 +37,19 @@ const HomePage = () => {
 			/>
 			<Products
 				inputValue={Number(inputFilterValue)}
-				numberProducts={numberProducts}
+				numberLastProductsToDisplay={numberLastProductsToDisplay}
+				setNumberAllProduts={setNumberAllProduts}
 			/>
-			<Switcher direction="prev" setNumber={setNumberProducts} />
-			<Switcher direction="next" setNumber={setNumberProducts} />
+			<Switcher
+				direction="prev"
+				numberAllProducts={numberAllProducts}
+				setNumber={setNumberLastProductsToDisplay}
+			/>
+			<Switcher
+				direction="next"
+				numberAllProducts={numberAllProducts}
+				setNumber={setNumberLastProductsToDisplay}
+			/>
 		</main>
 	);
 };
