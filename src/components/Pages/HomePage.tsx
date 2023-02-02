@@ -8,12 +8,8 @@ const HomePage = () => {
 
 	const [numberAllProducts, setNumberAllProduts] = useState(0);
 
-	console.log(numberAllProducts);
-
 	const [numberLastProductsToDisplay, setNumberLastProductsToDisplay] =
 		useState(5);
-
-	// console.log(numberLastProductsToDisplay);
 
 	const handleInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (Number.isNaN(Number(e.target.value))) return;
