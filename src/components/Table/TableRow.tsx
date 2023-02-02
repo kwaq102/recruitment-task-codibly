@@ -7,9 +7,7 @@ interface Props {
 }
 const TableRow = (props: Props) => {
 	const [modal, setModal] = useState<boolean>(false);
-	const showModal = modal ? <ProductInfo modal={modal} /> : null;
-
-	const handleProductInfoModal = () => console.log("modal działą");
+	const showModal = modal ? <ProductInfo product={props.product} /> : null;
 	const { id, name, year, color } = props.product;
 
 	return (
@@ -18,12 +16,13 @@ const TableRow = (props: Props) => {
 				style={{
 					backgroundColor: color,
 				}}
-				onClick={handleProductInfoModal}
+				onClick={() => setModal(true)}
 			>
 				<td>{id}</td>
 				<td>{name}</td>
 				<td>{year}</td>
 			</tr>
+			{showModal}
 		</>
 	);
 };

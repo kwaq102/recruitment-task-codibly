@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProductData } from "../../types/products-data";
 import TableRow from "./TableRow";
 
