@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { ProductData } from "../../types/products-data";
 import Table from "../Table/Table";
 
-const Products = () => {
+interface Props {
+	inputValue: number;
+}
+
+const Products = (props: Props) => {
 	const [productsList, setProdutsList] = useState<ProductData[] | null>(null);
 
 	useEffect(() => {
@@ -27,7 +31,7 @@ const Products = () => {
 
 	return (
 		<>
-			<Table products={productsList} />
+			<Table products={productsList} inputValue={props.inputValue} />
 		</>
 	);
 };

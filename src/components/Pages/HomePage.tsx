@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Products from "../Product/Products";
-import Table from "../Table/Table";
 
 const HomePage = () => {
 	const [inputFilterValue, setInputFilterValue] = useState<string>("");
@@ -26,8 +25,7 @@ const HomePage = () => {
 				}}
 				placeholder={focus ? "" : "Search..."}
 			/>
-			<Products />
-			{/* <Table /> */}
+			<Products inputValue={Number(inputFilterValue)} />
 		</section>
 	);
 };
