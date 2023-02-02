@@ -4,10 +4,14 @@ import Table from "../Table/Table";
 
 interface Props {
 	inputValue: number;
+	numberProducts: number;
 }
 
 const Products = (props: Props) => {
 	const [productsList, setProdutsList] = useState<ProductData[] | null>(null);
+
+	let startTable = props.numberProducts - 5;
+	let endTable = props.numberProducts;
 
 	useEffect(() => {
 		(async () => {
@@ -30,13 +34,13 @@ const Products = (props: Props) => {
 								return props.inputValue === product.id;
 							} else return product;
 						})
-						.slice(0, 5)
+						.slice(startTable, endTable)
 				);
 			} catch (error) {
 				console.error(error);
 			}
 		})();
-	}, [props.inputValue]);
+	}, [props.inputValue, props.numberProducts]);
 
 	return (
 		<>

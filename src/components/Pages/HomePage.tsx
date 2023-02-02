@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Switcher from "../common/Switcher";
 import Products from "../Product/Products";
 
 const HomePage = () => {
 	const [inputFilterValue, setInputFilterValue] = useState<string>("");
 	const [focus, setFocus] = useState<boolean>(false);
+
+	const [numberProducts, setNumberProducts] = useState(5);
+
+	console.log(numberProducts);
 
 	const handleInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (Number.isNaN(Number(e.target.value))) return;
@@ -11,7 +16,7 @@ const HomePage = () => {
 	};
 
 	return (
-		<section className="homePage">
+		<main className="homePage">
 			<h1>Strona główna</h1>
 			<input
 				type="text"
@@ -25,8 +30,13 @@ const HomePage = () => {
 				}}
 				placeholder={focus ? "" : "Search..."}
 			/>
-			<Products inputValue={Number(inputFilterValue)} />
-		</section>
+			<Products
+				inputValue={Number(inputFilterValue)}
+				numberProducts={numberProducts}
+			/>
+			<Switcher direction="prev" setNumber={setNumberProducts} />
+			<Switcher direction="next" setNumber={setNumberProducts} />
+		</main>
 	);
 };
 
