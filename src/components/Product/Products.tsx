@@ -22,16 +22,25 @@ const Products = (props: Props) => {
 					console.log("status 500");
 				}
 				const data = await res.json();
-				await setProdutsList(data.data);
+
+				await setProdutsList(
+					data.data
+						.filter((product: ProductData) => {
+							if (props.inputValue) {
+								return props.inputValue === product.id;
+							} else return product;
+						})
+						.slice(0, 5)
+				);
 			} catch (error) {
 				console.error(error);
 			}
 		})();
-	}, []);
+	}, [props.inputValue]);
 
 	return (
 		<>
-			<Table products={productsList} inputValue={props.inputValue} />
+			<Table products={productsList} />
 		</>
 	);
 };

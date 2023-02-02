@@ -4,7 +4,6 @@ import TableRow from "./TableRow";
 
 interface Props {
 	products: ProductData[] | null;
-	inputValue: number;
 }
 
 const Table = (props: Props) => {
@@ -19,15 +18,9 @@ const Table = (props: Props) => {
 			</thead>
 			<tbody>
 				{props.products &&
-					props.products
-						.map(product => <TableRow product={product} key={product.id} />)
-						.filter(row => {
-							if (props.inputValue) {
-								return props.inputValue === row.props.product.id;
-							} else return row;
-						})}
-
-				{/* TODO dodać slice() lub coś co utnie tablicę bo musi pokazywać tylko 5 elementów */}
+					props.products.map(product => (
+						<TableRow product={product} key={product.id} />
+					))}
 			</tbody>
 		</table>
 	);
