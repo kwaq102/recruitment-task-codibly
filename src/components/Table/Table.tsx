@@ -1,6 +1,12 @@
 import React from "react";
+import { ProductData } from "../../types/products-data";
 import TableRow from "./TableRow";
-const Table = () => {
+
+interface Props {
+	products: ProductData[] | null;
+}
+
+const Table = (props: Props) => {
 	return (
 		<table>
 			<thead>
@@ -11,12 +17,12 @@ const Table = () => {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>identyfikator z Tabele</td>
-					<td>nazwa z Tabele</td>
-					<td>rok z Tabele</td>
-				</tr>
-				<TableRow />
+				{props.products &&
+					props.products.map(product => (
+						<TableRow product={product} key={product.id} />
+					))}
+
+				{/* TODO dodać slice() lub coś co utnie tablicę bo musi pokazywać tylko 5 elementów */}
 			</tbody>
 		</table>
 	);
