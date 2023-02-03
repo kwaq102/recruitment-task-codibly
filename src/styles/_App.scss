@@ -3,6 +3,9 @@
 	height: 100vh;
 	background-image: url("../images/bg.jpg");
 	font-family: "Roboto", sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
 	.App__title {
 		position: absolute;

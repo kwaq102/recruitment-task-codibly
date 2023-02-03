@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Switcher from "../common/Switcher";
 import Products from "../Product/Products";
+import loupe from "../../images/loupe.svg";
+import close from "../../images/x.svg";
 
 const HomePage = () => {
 	const [inputFilterValue, setInputFilterValue] = useState<string>("");
@@ -16,21 +18,34 @@ const HomePage = () => {
 		setInputFilterValue(e.target.value);
 	};
 
+	const resetInput = () => {
+		setInputFilterValue("");
+		setFocus(!focus);
+	};
+
 	return (
 		<main className="homePage">
-			<input
-				type="text"
-				onChange={handleInputFilter}
-				value={inputFilterValue}
-				onFocus={() => {
-					setFocus(true);
-				}}
-				onBlur={() => {
-					setFocus(false);
-				}}
-				placeholder={focus ? "" : "Search..."}
-			/>
-
+			<div className="homePage__wrapperForInput">
+				<input
+					className="homePage__searchInput"
+					type="text"
+					onChange={handleInputFilter}
+					value={inputFilterValue}
+					onFocus={() => {
+						setFocus(true);
+					}}
+					onBlur={() => {
+						setFocus(false);
+					}}
+					placeholder={focus ? "" : "Search..."}
+				/>
+				<img
+					className="homePage__iconToSearch"
+					src={focus ? close : loupe}
+					alt="loupe for search produt"
+					onClick={() => resetInput()}
+				/>
+			</div>
 			<Products
 				inputValue={Number(inputFilterValue)}
 				numberLastProductsToDisplay={numberLastProductsToDisplay}
