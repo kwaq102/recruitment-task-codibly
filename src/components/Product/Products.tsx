@@ -25,16 +25,12 @@ const Products = (props: Props) => {
 			try {
 				const res = await fetch("https://reqres.in/api/products");
 
-				// TODO to do handle errors
 				if (String(res.status)[0] === "4") {
-					// console.log("błąd serii 400");
-
 					return setMessageError(
 						"Something went wrong with your request. Please try again."
 					);
 				}
 				if (String(res.status)[0] === "5") {
-					// console.log("stabłąd serii  500");
 					return setMessageError(
 						"Something went wrong. Please try again later."
 					);

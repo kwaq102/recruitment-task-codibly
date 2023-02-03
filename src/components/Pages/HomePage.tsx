@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Spinner from "../common/Spinner/Spinner";
+import React, { useState } from "react";
 import Switcher from "../common/Switcher";
 import Products from "../Product/Products";
 
@@ -19,7 +18,6 @@ const HomePage = () => {
 
 	return (
 		<main className="homePage">
-			<h1>Strona główna</h1>
 			<input
 				type="text"
 				onChange={handleInputFilter}
