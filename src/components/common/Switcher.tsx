@@ -15,6 +15,7 @@ const Switcher = (props: Props) => {
 
 	return (
 		<div
+			className="Switcher"
 			onClick={() => {
 				props.setNumber(prev => {
 					switch (props.direction) {
@@ -28,9 +29,12 @@ const Switcher = (props: Props) => {
 				});
 			}}
 		>
-			<img src={arrow} alt={`Arrow ${altText} site.`} />
+			<img
+				className={`Switcher__arrow ${props.direction}`}
+				src={arrow}
+				alt={`Arrow ${altText} site.`}
+			/>
 		</div>
-		// TODO set arrows and make sites
 	);
 };
 

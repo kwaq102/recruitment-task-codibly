@@ -7,9 +7,7 @@ import close from "../../images/x.svg";
 const HomePage = () => {
 	const [inputFilterValue, setInputFilterValue] = useState<string>("");
 	const [focus, setFocus] = useState<boolean>(false);
-
 	const [numberAllProducts, setNumberAllProduts] = useState(0);
-
 	const [numberLastProductsToDisplay, setNumberLastProductsToDisplay] =
 		useState(5);
 
@@ -35,7 +33,7 @@ const HomePage = () => {
 						setFocus(true);
 					}}
 					onBlur={() => {
-						setFocus(false);
+						inputFilterValue === "" && setFocus(false);
 					}}
 					placeholder={focus ? "" : "Search..."}
 				/>
@@ -51,16 +49,19 @@ const HomePage = () => {
 				numberLastProductsToDisplay={numberLastProductsToDisplay}
 				setNumberAllProduts={setNumberAllProduts}
 			/>
-			<Switcher
-				direction="prev"
-				numberAllProducts={numberAllProducts}
-				setNumber={setNumberLastProductsToDisplay}
-			/>
-			<Switcher
-				direction="next"
-				numberAllProducts={numberAllProducts}
-				setNumber={setNumberLastProductsToDisplay}
-			/>
+			<div className="homePage__wrapperForSwitchers">
+				<Switcher
+					direction="prev"
+					numberAllProducts={numberAllProducts}
+					setNumber={setNumberLastProductsToDisplay}
+				/>
+				{/* TODO maybe try set number of site */}
+				<Switcher
+					direction="next"
+					numberAllProducts={numberAllProducts}
+					setNumber={setNumberLastProductsToDisplay}
+				/>
+			</div>
 		</main>
 	);
 };
