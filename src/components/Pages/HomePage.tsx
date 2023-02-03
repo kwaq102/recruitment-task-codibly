@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Spinner from "../common/Spinner/Spinner";
 import Switcher from "../common/Switcher";
 import Products from "../Product/Products";
 
@@ -31,6 +32,7 @@ const HomePage = () => {
 				}}
 				placeholder={focus ? "" : "Search..."}
 			/>
+
 			<Products
 				inputValue={Number(inputFilterValue)}
 				numberLastProductsToDisplay={numberLastProductsToDisplay}

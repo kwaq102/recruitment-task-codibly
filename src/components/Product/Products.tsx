@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ProductData } from "../../types/products-data";
+import Spinner from "../common/Spinner/Spinner";
+import ErrorInfo from "../Error/ErrorInfo";
 import Table from "../Table/Table";
 
 interface Props {
@@ -11,6 +13,10 @@ interface Props {
 const Products = (props: Props) => {
 	const [productsList, setProdutsList] = useState<ProductData[] | null>(null);
 
+	const [messageError, setMessageError] = useState<string | null>(null);
+
+	const [spinner, setSpinner] = useState(true);
+
 	let startTable = props.numberLastProductsToDisplay - 5;
 	let endTable = props.numberLastProductsToDisplay;
 
@@ -20,11 +26,18 @@ const Products = (props: Props) => {
 				const res = await fetch("https://reqres.in/api/products");
 
 				// TODO to do handle errors
-				if (res.status === 404) {
-					console.log("status 404");
+				if (String(res.status)[0] === "4") {
+					// console.log("błąd serii 400");
+
+					return setMessageError(
+						"Something went wrong with your request. Please try again."
+					);
 				}
-				if (res.status === 500) {
-					console.log("status 500");
+				if (String(res.status)[0] === "5") {
+					// console.log("stabłąd serii  500");
+					return setMessageError(
+						"Something went wrong. Please try again later."
+					);
 				}
 				const data = await res.json();
 
@@ -39,6 +52,8 @@ const Products = (props: Props) => {
 						})
 						.slice(startTable, endTable)
 				);
+				setSpinner(false);
+				// TODO set nice spinner
 			} catch (error) {
 				console.error(error);
 			}
@@ -47,7 +62,12 @@ const Products = (props: Props) => {
 
 	return (
 		<>
-			<Table products={productsList} />
+			{messageError === null ? (
+				<Table products={productsList} />
+			) : (
+				<ErrorInfo errorMessage={messageError} />
+			)}
+			{spinner && messageError === null && <Spinner />}
 		</>
 	);
 };

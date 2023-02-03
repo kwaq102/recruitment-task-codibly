@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { ProductData } from "../../types/products-data";
 
 interface Props {
 	product: ProductData;
+	setModal: Dispatch<SetStateAction<boolean>>;
 }
 
 const ProductInfo = (props: Props) => {
@@ -12,6 +13,7 @@ const ProductInfo = (props: Props) => {
 
 	return (
 		<div>
+			<span onClick={() => props.setModal(false)}>Close</span>
 			<h3>Product information</h3>
 			<p>
 				<span>id:</span> {id}
