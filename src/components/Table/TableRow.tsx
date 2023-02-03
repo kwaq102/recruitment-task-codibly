@@ -15,14 +15,15 @@ const TableRow = (props: Props) => {
 	return (
 		<>
 			<tr
+				className="homePage__productsTable__body-row"
 				style={{
 					backgroundColor: color,
 				}}
 				onClick={() => setModal(true)}
 			>
-				<td>{id}</td>
-				<td>{name}</td>
-				<td>{year}</td>
+				<td className="homePage__productsTable-body-cell">{id}</td>
+				<td className="homePage__productsTable-body-cell">{name}</td>
+				<td className="homePage__productsTable-body-cell">{year}</td>
 			</tr>
 			{showModal}
 		</>

@@ -1,29 +1,28 @@
 .homePage {
 	width: $width-content;
 	max-width: 90%;
-	height: 50%;
+	height: 70%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 
 	.homePage__wrapperForInput {
 		position: relative;
-		width: 20%;
-		padding-right: 25px;
+
 		align-self: flex-end;
 
 		.homePage__searchInput {
 			font-size: 1.6rem;
 			padding: 5px;
-
+			padding-right: 25px;
 			outline: none;
 		}
 		.homePage__iconToSearch {
 			width: 20px;
 			position: absolute;
 			top: 50%;
-			right: 2px;
+			right: 5px;
 			transform: translateY(-50%);
 			z-index: 1;
 			cursor: pointer;

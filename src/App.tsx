@@ -3,6 +3,7 @@ import HomePage from "./components/Pages/HomePage";
 
 import "./styles/index.scss";
 // TODO less size bg
+
 function App() {
 	return (
 		<div className="App">
