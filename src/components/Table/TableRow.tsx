@@ -8,7 +8,7 @@ interface Props {
 const TableRow = (props: Props) => {
 	const [modal, setModal] = useState<boolean>(false);
 	const showModal = modal ? (
-		<ProductInfo product={props.product} setModal={setModal} />
+		<ProductInfo product={props.product} setModal={setModal} modal={modal} />
 	) : null;
 	const { id, name, year, color } = props.product;
 
