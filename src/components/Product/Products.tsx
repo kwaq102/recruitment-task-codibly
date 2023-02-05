@@ -49,7 +49,6 @@ const Products = (props: Props) => {
 						.slice(startTable, endTable)
 				);
 				setSpinner(false);
-				// TODO set nice spinner
 			} catch (error) {
 				console.error(error);
 			}

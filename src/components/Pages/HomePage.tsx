@@ -55,7 +55,6 @@ const HomePage = () => {
 					numberAllProducts={numberAllProducts}
 					setNumber={setNumberLastProductsToDisplay}
 				/>
-				{/* TODO maybe try set number of site */}
 				<Switcher
 					direction="next"
 					numberAllProducts={numberAllProducts}
