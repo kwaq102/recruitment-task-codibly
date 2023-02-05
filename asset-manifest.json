@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/recruitment-task-codibly/static/css/main.3c23144a.css",
+    "main.js": "/recruitment-task-codibly/static/js/main.bfdc21d6.js",
+    "static/js/787.c1112931.chunk.js": "/recruitment-task-codibly/static/js/787.c1112931.chunk.js",
+    "static/media/bg.jpg": "/recruitment-task-codibly/static/media/bg.674aac770095098f09ac.jpg",
+    "index.html": "/recruitment-task-codibly/index.html",
+    "static/media/x-white.svg": "/recruitment-task-codibly/static/media/x-white.a4868ec5aba3026198eb7ab42883f2fd.svg",
+    "static/media/loupe.svg": "/recruitment-task-codibly/static/media/loupe.f9705ffe407455bd10ed6827af98d123.svg",
+    "static/media/x.svg": "/recruitment-task-codibly/static/media/x.6c9a4ba71a333be7b021fc6da39d864c.svg",
+    "static/media/arrow-right.svg": "/recruitment-task-codibly/static/media/arrow-right.7015e9c6ce0c2297b4e111e0bf83b1a2.svg",
+    "static/media/arrow-left.svg": "/recruitment-task-codibly/static/media/arrow-left.3eff4a0c4a7a5c4e92d17c77fd9d2869.svg",
+    "main.3c23144a.css.map": "/recruitment-task-codibly/static/css/main.3c23144a.css.map",
+    "main.bfdc21d6.js.map": "/recruitment-task-codibly/static/js/main.bfdc21d6.js.map",
+    "787.c1112931.chunk.js.map": "/recruitment-task-codibly/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c23144a.css",
+    "static/js/main.bfdc21d6.js"
+  ]
+}
