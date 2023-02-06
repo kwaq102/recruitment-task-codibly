@@ -67,6 +67,10 @@
 				color: #ddd;
 			}
 		}
+
+		@media screen and (max-width: map-get($breakpoints, m)) {
+			width: $width-content-mobile;
+		}
 	}
 
 	.modal__content.show {

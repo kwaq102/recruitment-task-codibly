@@ -20,6 +20,10 @@
 				&:nth-child(3) {
 					width: 10%;
 				}
+
+				@media screen and (max-width: map-get($breakpoints, m)) {
+					padding: 5px 10px;
+				}
 			}
 		}
 	}
@@ -34,6 +38,9 @@
 
 				&:nth-child(1) {
 					font-weight: bold;
+				}
+				@media screen and (max-width: map-get($breakpoints, m)) {
+					padding: 10px 10px;
 				}
 			}
 		}

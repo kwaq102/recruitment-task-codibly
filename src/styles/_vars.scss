@@ -1,2 +1,8 @@
 $width-content: 600px;
+$width-content-mobile: 90%;
 $basic-font-size: 10px;
+
+$breakpoints: (
+	xs: 375px,
+	m: 600px,
+);
