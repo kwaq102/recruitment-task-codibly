@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import Switcher from "../common/Switcher";
 import Products from "../Product/Products";
 import loupe from "../../images/loupe.svg";
@@ -11,8 +11,8 @@ const HomePage = () => {
 	const [numberLastProductsToDisplay, setNumberLastProductsToDisplay] =
 		useState(5);
 
-	const handleInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (Number.isNaN(Number(e.target.value))) return;
+	const handleInputFilter = (e: ChangeEvent<HTMLInputElement>) => {
+		if (isNaN(Number(e.target.value))) return;
 		setInputFilterValue(e.target.value);
 	};
 
@@ -40,7 +40,7 @@ const HomePage = () => {
 				<img
 					className="homePage__iconToSearch"
 					src={focus ? close : loupe}
-					alt="loupe for search produt"
+					alt={focus ? "X icon to close searching" : "loupe for search produt"}
 					onClick={() => resetInput()}
 				/>
 			</div>

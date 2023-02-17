@@ -23,7 +23,7 @@ const Products = (props: Props) => {
 	useEffect(() => {
 		(async () => {
 			try {
-				const res = await fetch("https://reqres.in/api/products");
+				const res = await fetch("https://reqres.in/aspi/products");
 
 				if (String(res.status)[0] === "4") {
 					return setMessageError(
@@ -32,7 +32,7 @@ const Products = (props: Props) => {
 				}
 				if (String(res.status)[0] === "5") {
 					return setMessageError(
-						"Something went wrong. Please try again later."
+						"Something went wrong with serwer. Please try again later."
 					);
 				}
 				const data = await res.json();
